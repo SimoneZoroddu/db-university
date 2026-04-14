@@ -23,13 +23,55 @@ Esportare quindi il diagramma in png, caricarlo in un file html e pushare tutto 
 
 
  ## departments
+- id
+- name
+- students_id
+
 
  ## courses_degree
+- id
+- name
+- students_id
+
 
  ## course_subjects
+- id
+- name
+- courses_degree_id
+- teachers_id
+- students_id
+
 
  ## teachers
+- id
+- firstname
+- lastname
+- birth
+- date_of_hire
+- phone
+- email
+- course_subject_id
+- contractual_regime
+
 
  ## exam_calls
+- id
+- students_id
+- course_subject_id
+- teachers_id
+- date
+- outcome
+
 
  ## students
+ - id
+ - firstname
+ - lastname
+ - course_subject_id
+ - course_degree_id
+ - departments_id
+ - birth
+ - email
+ - phone
+ - study_regime
+ - votes
