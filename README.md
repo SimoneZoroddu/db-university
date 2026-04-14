@@ -23,19 +23,19 @@ Esportare quindi il diagramma in png, caricarlo in un file html e pushare tutto 
 
 
  ## departments
-- id                                        TINYINT(-/+127)             PRIMARY_KEY, AUTO_INCREMENT
+- id                                        TINYINT(-/+127)             PRIMARY_KEY, AUTO_INCREMENT             INDEX
 - name                                      VARCHAR(50)                 NOTNULL
 - students_id                               VARCHAR(100)                NULL
 
 
  ## courses_degree
-- id                                        TINYINT(-/+127)             PRIMARY_KEY, AUTO_INCREMENT
+- id                                        TINYINT(-/+127)             PRIMARY_KEY, AUTO_INCREMENT             INDEX
 - name                                      VARCHAR(50)                 NOTNULL
 - students_id                               SMALLINT(-/+32.767)         NULL
 
 
  ## course_subjects
-- id                                        TINYINT(-/+127)             PRIMARY_KEY, AUTO_INCREMENT
+- id                                        TINYINT(-/+127)             PRIMARY_KEY, AUTO_INCREMENT             INDEX
 - name                                      VARCHAR(50)                 NOTNULL
 - courses_degree_id                         TINYINT(-/+127)             NOTNULL
 - teachers_id                               TINYINT(-/+127)             NOTNULL
@@ -43,7 +43,7 @@ Esportare quindi il diagramma in png, caricarlo in un file html e pushare tutto 
 
 
  ## teachers
-- id                                        TINYINT(-/+127)             PRIMARY_KEY, AUTO_INCREMENT
+- id                                        TINYINT(-/+127)             PRIMARY_KEY, AUTO_INCREMENT             INDEX
 - firstname                                 VARCHAR(50)                 NOTNULL
 - lastname                                  VARCHAR(50)                 NOTNULL
 - birth                                     DATE                        NULL
@@ -55,7 +55,7 @@ Esportare quindi il diagramma in png, caricarlo in un file html e pushare tutto 
 
 
  ## exam_calls
-- id                                        INT(-/+2.147.483.647)       PRIMARY_KEY, AUTO_INCREMENT
+- id                                        INT(-/+2.147.483.647)       PRIMARY_KEY, AUTO_INCREMENT             INDEX
 - students_id                               MEDIUMYINT(-/+8.388.607)    NOTNULL
 - course_subject_id                         TINYINT(-/+127)             NOTNULL
 - teachers_id                               TINYINT(-/+127)             NULL
@@ -64,7 +64,7 @@ Esportare quindi il diagramma in png, caricarlo in un file html e pushare tutto 
 
 
  ## students
- - id                                       MEDIUMYINT(-/+8.388.607)    PRIMARY_KEY, AUTO_INCREMENT
+ - id                                       MEDIUMYINT(-/+8.388.607)    PRIMARY_KEY, AUTO_INCREMENT             INDEX
  - firstname                                VARCHAR(50)                 NOTNULL
  - lastname                                 VARCHAR(50)                 NOTNULL
  - course_subject_id                        TINYINT(-/+127)             NULL
@@ -75,3 +75,12 @@ Esportare quindi il diagramma in png, caricarlo in un file html e pushare tutto 
  - phone                                    TINYINT(-/+127)             NULL
  - study_regime                             VARCHAR(10)                 NULL
  - votes                                    FLOAT(3,1)                  NULL
+
+
+
+
+<!--  
+    probabili errori i numeri degli id smallint troppo picolo essendo un database deve tenere numeri di studenti che hanno lasciato/finito il corso?
+    ce bisogno degl id nelle strutture a colonne di ogni corso? (penso di per associarli)
+    ce bisogno di collegare ai departments e coursesdregree gli studenti?
+ -->
