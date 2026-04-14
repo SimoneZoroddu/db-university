@@ -23,55 +23,55 @@ Esportare quindi il diagramma in png, caricarlo in un file html e pushare tutto 
 
 
  ## departments
-- id
-- name
-- students_id
+- id                                        TINYINT(-/+127)             PRIMARY_KEY, AUTO_INCREMENT
+- name                                      VARCHAR(50)                 NOTNULL
+- students_id                               VARCHAR(100)                NULL
 
 
  ## courses_degree
-- id
-- name
-- students_id
+- id                                        TINYINT(-/+127)             PRIMARY_KEY, AUTO_INCREMENT
+- name                                      VARCHAR(50)                 NOTNULL
+- students_id                               SMALLINT(-/+32.767)         NULL
 
 
  ## course_subjects
-- id
-- name
-- courses_degree_id
-- teachers_id
-- students_id
+- id                                        TINYINT(-/+127)             PRIMARY_KEY, AUTO_INCREMENT
+- name                                      VARCHAR(50)                 NOTNULL
+- courses_degree_id                         TINYINT(-/+127)             NOTNULL
+- teachers_id                               TINYINT(-/+127)             NOTNULL
+- students_id                               SMALLINT(-/+32.767)         NOTNULL
 
 
  ## teachers
-- id
-- firstname
-- lastname
-- birth
-- date_of_hire
-- phone
-- email
-- course_subject_id
-- contractual_regime
+- id                                        TINYINT(-/+127)             PRIMARY_KEY, AUTO_INCREMENT
+- firstname                                 VARCHAR(50)                 NOTNULL
+- lastname                                  VARCHAR(50)                 NOTNULL
+- birth                                     DATE                        NULL
+- date_of_hire                              DATE                        NOTNULL
+- phone                                     TINYINT(-/+127)             NULL
+- email                                     VARCHAR(50)                 NULL
+- course_subject_id                         TINYINT(-/+127)             NULL
+- contractual_regime                        VARCHAR(10)                 NULL
 
 
  ## exam_calls
-- id
-- students_id
-- course_subject_id
-- teachers_id
-- date
-- outcome
+- id                                        INT(-/+2.147.483.647)       PRIMARY_KEY, AUTO_INCREMENT
+- students_id                               MEDIUMYINT(-/+8.388.607)    NOTNULL
+- course_subject_id                         TINYINT(-/+127)             NOTNULL
+- teachers_id                               TINYINT(-/+127)             NULL
+- date                                      DATE                        NULL
+- outcome                                   FLOAT(2,1)                  NOTNULL
 
 
  ## students
- - id
- - firstname
- - lastname
- - course_subject_id
- - course_degree_id
- - departments_id
- - birth
- - email
- - phone
- - study_regime
- - votes
+ - id                                       MEDIUMYINT(-/+8.388.607)    PRIMARY_KEY, AUTO_INCREMENT
+ - firstname                                VARCHAR(50)                 NOTNULL
+ - lastname                                 VARCHAR(50)                 NOTNULL
+ - course_subject_id                        TINYINT(-/+127)             NULL
+ - course_degree_id                         TINYINT(-/+127)             NULL
+ - departments_id                           TINYINT(-/+127)             NULL
+ - birth                                    DATE                        NULL
+ - email                                    VARCHAR(50)                 NOTNULL
+ - phone                                    TINYINT(-/+127)             NULL
+ - study_regime                             VARCHAR(10)                 NULL
+ - votes                                    FLOAT(3,1)                  NULL
